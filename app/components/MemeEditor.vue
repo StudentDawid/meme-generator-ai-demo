@@ -332,7 +332,7 @@ function initTextLayers() {
       fontSize: layer.size,
       left: fCanvas!.width ? fCanvas!.width / 2 : 400,
       top: index === 0 ? 50 : fCanvas!.height ? fCanvas!.height - 50 : 550,
-    })
+    } as unknown as fabric.ITextOptions & { id: string })
     fCanvas!.add(textObj)
   })
 }
@@ -384,8 +384,8 @@ function rebuildTextLayersFromCanvas() {
     text: o.text || '',
     size: o.fontSize || 48,
     font: o.fontFamily || 'Impact',
-    color: o.fill || '#FFFFFF',
-    stroke: o.stroke || '#000000',
+    color: (o.fill as string) || '#FFFFFF',
+    stroke: (o.stroke as string) || '#000000',
   }))
 }
 
@@ -545,7 +545,7 @@ const addGenericText = () => {
     fontSize: 48,
     left: fCanvas.width ? fCanvas.width / 2 : 400,
     top: fCanvas.height ? fCanvas.height / 2 : 300,
-  })
+  } as unknown as fabric.ITextOptions & { id: string })
   
   fCanvas.add(newTextObj)
   fCanvas.setActiveObject(newTextObj)
