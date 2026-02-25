@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     transpile: ['vuetify'],
   },
 
-  modules: ['@pinia/nuxt', (_options, nuxt) => {
+  modules: ['@pinia/nuxt', '@nuxt/test-utils/module', (_options, nuxt) => {
     nuxt.hooks.hook('vite:extendConfig', (config) => {
       // @ts-expect-error plugin type workaround
       config.plugins.push(vuetify({ autoImport: true }))
