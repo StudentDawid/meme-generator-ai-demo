@@ -1,6 +1,4 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <v-app>
-    <NuxtPage />
-  </v-app>
+  <MemeEditor />
 </template>
